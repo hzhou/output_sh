@@ -1,0 +1,15 @@
+page: test
+    module: sh
+
+    x=3
+    $if test $x = 5
+        echo Hello World
+    $else
+        echo x != 5
+
+    $if true
+        echo true works!
+    $if false
+        echo NOOP
+    $else
+        echo false works!

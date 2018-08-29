@@ -1,0 +1,15 @@
+include: output.def
+include: macros_output/case.def
+
+page: output_sh, output_main
+    type: pm
+    output_dir: lib/MyDef
+    ext: sh
+    package: MyDef::output_sh
+
+subcode: parsecode
+    $call parsecode_case_support, if, elif, sh_style
+    $call @parsecode_other
+    push @$out, $l
+    return 0
+
