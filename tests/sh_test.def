@@ -15,3 +15,7 @@ page: test
         echo false works!
 
     $print print works: x=$x
+    $foreach w in foreach works
+        $print $w
+    $for w in for works
+        $print $w

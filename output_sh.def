@@ -16,6 +16,11 @@ subcode: parsecode
         $else
             push @$out, "echo"
         return 0
+    # $for/$foreach a in word list: shell for loop (the only form)
+    $if $l=~/^\$(?:for|foreach)\s+(\w+)\s+in\s+(.*?)\s*$/
+        my ($v, $list)=($1, $2)
+        &call return_newblock, for
+            $call push_single_block, "for $v in $list; do", "done"
     $call @parsecode_other
     push @$out, $l
     return 0
