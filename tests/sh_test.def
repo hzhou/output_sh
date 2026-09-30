@@ -13,3 +13,5 @@ page: test
         echo NOOP
     $else
         echo false works!
+
+    $print print works: x=$x

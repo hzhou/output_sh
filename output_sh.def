@@ -9,6 +9,13 @@ page: output_sh, output_main
 
 subcode: parsecode
     $call parsecode_case_support, if, elif, sh_style
+    # $print: plain echo, no format handling
+    $if $l=~/^\$print\b\s*(.*)$/
+        $if $1 ne ""
+            push @$out, "echo $1"
+        $else
+            push @$out, "echo"
+        return 0
     $call @parsecode_other
     push @$out, $l
     return 0
